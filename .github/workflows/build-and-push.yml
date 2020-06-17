@@ -1,0 +1,44 @@
+name: Build and Publish Docker Images
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and Publish 7.4-cli
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: namoshek/php-mssql
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: 7.4/cli
+          tags: "latest,latest-cli,7.4-cli"
+      - name: Build and Publish 7.4-fpm
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: namoshek/php-mssql
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: 7.4/fpm
+          tags: "latest-fpm,7.4-fpm"
+      - name: Build and Publish 7.3-cli
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: namoshek/php-mssql
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: 7.3/cli
+          tags: "7.3-cli"
+      - name: Build and Publish 7.3-fpm
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: namoshek/php-mssql
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: 7.3/fpm
+          tags: "7.3-fpm"
