@@ -1,6 +1,6 @@
 # docker-php-mssql
-  
-Docker images based on the [official Docker PHP images](https://hub.docker.com/_/php/) with 
+
+Docker images based on the [official Docker PHP images](https://hub.docker.com/_/php/) with
 the [Microsoft SQL Server Driver](https://github.com/Microsoft/msphpsql) already installed.
 
 ## Usage
@@ -12,9 +12,10 @@ To run a container with an image, you can also use `docker run namoshek/php-mssq
 
 For the moment, the primary goal of this repository is to support the following configurations:
 
-- PHP 7.3 + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
-
-**Note: As there is currently no stable release of the [`microsoft/msphpsql`](https://github.com/Microsoft/msphpsql/releases) available, this build is considered experimental!**
+- PHP 7.3 (based on Debian Stretch) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+- PHP 7.4 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+  - With nodejs, npm, yarn and composer added to the CLI version
+  - With bcmath, exif, gd, imagick, pcntl, redis, and zip as additional PHP extensions
 
 The exact versions can vary from build to build.
 To see a list of all available tags, please have a look at the [Docker Hub image page](https://hub.docker.com/r/namoshek/php-mssql).
@@ -30,4 +31,3 @@ If you want to contribute the sources for other PHP versions, I'll appreciate it
 ## License
 
 The code is licensed under the [MIT license](LICENSE).
- 
