@@ -14,4 +14,4 @@ RUN pecl install sqlsrv-5.5.0preview \
     && docker-php-ext-enable --ini-name 30-sqlsrv.ini sqlsrv \
     && docker-php-ext-enable --ini-name 35-pdo_sqlsrv.ini pdo_sqlsrv
 
-RUN docker-php-ext-install bcmath pcntl gd zip
+RUN docker-php-ext-install bcmath pcntl gd opcache zip

@@ -18,6 +18,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: 7.4/cli
           tags: "latest,latest-cli,7.4-cli"
+          snapshot: true
       - name: Build and Publish 7.4-fpm
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
@@ -26,6 +27,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: 7.4/fpm
           tags: "latest-fpm,7.4-fpm"
+          snapshot: true
       - name: Build and Publish 7.3-cli
         uses: elgohr/Publish-Docker-Github-Action@master
         with:

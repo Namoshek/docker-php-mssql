@@ -4,7 +4,7 @@ ENV ACCEPT_EULA=Y
 
 # Install prerequisites required for tools and extensions installed later on.
 RUN apt-get update \
-    && apt-get install -y gnupg2 apt-transport-https libpng-dev libzip-dev unzip
+    && apt-get install -y apt-transport-https gnupg2 libpng-dev libzip-dev nano unzip
 
 # Install prerequisites for the sqlsrv and pdo_sqlsrv PHP extensions.
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
@@ -18,7 +18,7 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 # Install required PHP extensions and all their prerequisites available via apt.
 RUN chmod uga+x /usr/bin/install-php-extensions \
     && sync \
-    && install-php-extensions bcmath exif gd imagick pcntl pdo_sqlsrv redis sqlsrv zip
+    && install-php-extensions bcmath exif gd imagick opcache pcntl pdo_sqlsrv redis sqlsrv zip
 
 # Downloading composer and marking it as executable.
 RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer-stable.phar \
