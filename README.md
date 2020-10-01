@@ -21,6 +21,12 @@ For the moment, the primary goal of this repository is to support the following 
 The exact versions can vary from build to build.
 To see a list of all available tags, please have a look at the [Docker Hub image page](https://hub.docker.com/r/namoshek/php-mssql).
 
+### Deprecated Images
+
+The Dockerfiles of the following images are no longer updated but images are still built automatically once a week.
+
+- PHP 7.3 (based on Debian Stretch) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
 ## Configuration
 
 To change the PHP configuration, have a look at [the official PHP Docker image repository](https://hub.docker.com/_/php/).
