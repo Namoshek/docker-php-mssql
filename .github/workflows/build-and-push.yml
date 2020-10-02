@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 jobs:
-  build-7.4-cli:
+  build-7_4-cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -19,7 +19,7 @@ jobs:
           workdir: 7.4/cli
           tags: "latest,latest-cli,7.4-cli"
           snapshot: true
-  build-7.4-fpm:
+  build-7_4-fpm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -32,7 +32,7 @@ jobs:
           workdir: 7.4/fpm
           tags: "latest-fpm,7.4-fpm"
           snapshot: true
-  build-7.3-cli:
+  build-7_3-cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -44,7 +44,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: 7.3/cli
           tags: "7.3-cli"
-  build-7.3-fpm:
+  build-7_3-fpm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
