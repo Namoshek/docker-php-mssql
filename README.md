@@ -19,6 +19,12 @@ For the moment, the primary goal of this repository is to support the following 
   - With bcmath, exif, gd, imagick, intl, opcache, pcntl, redis, and zip as additional PHP extensions
   - With pcov as additional PHP extension on the CLI image
 
+- PHP 8.0 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+  - **Warning:** a beta-release is used for the `sqlsrv` and `pdo_sqlsrv` extensions, since no stable release is available
+  - With nano, nodejs, npm, yarn and composer added to the CLI version
+  - With bcmath, exif, gd, imagick, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With pcov as additional PHP extension on the CLI image
+
 The exact versions can vary from build to build.
 To see a list of all available tags, please have a look at the [Docker Hub image page](https://hub.docker.com/r/namoshek/php-mssql).
 
@@ -31,6 +37,17 @@ The Dockerfiles of the following images are no longer updated but images are sti
 ## Configuration
 
 To change the PHP configuration, have a look at [the official PHP Docker image repository](https://hub.docker.com/_/php/).
+
+## Building the Images locally
+
+After cloning the repository, the images can be built locally using the following command:
+```sh
+docker build -t namoshek/php-mssql:<tag> <version>/<type>
+```
+Building the PHP 8.0 CLI image looks like this:
+```sh
+docker build -t namoshek/php-mssql:8.0-cli 8.0/cli
+```
 
 ## Contributing
 
