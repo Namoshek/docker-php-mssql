@@ -18,9 +18,7 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 # Install required PHP extensions and all their prerequisites available via apt.
 RUN chmod uga+x /usr/bin/install-php-extensions \
     && sync \
-    && install-php-extensions bcmath exif gd intl opcache pcntl pcov redis zip \
-    && pecl install sqlsrv-5.9.0beta2 pdo_sqlsrv-5.9.0beta2 \
-    && docker-php-ext-enable pdo_sqlsrv sqlsrv
+    && install-php-extensions bcmath exif gd intl opcache pcntl pcov pdo_sqlsrv redis sqlsrv zip
 
 # Downloading composer and marking it as executable.
 RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer-stable.phar \

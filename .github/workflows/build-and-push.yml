@@ -8,6 +8,7 @@ on:
     - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 
 jobs:
+  # PHP 8.0
   build-8_0-cli:
     runs-on: ubuntu-latest
     steps:
@@ -21,6 +22,7 @@ jobs:
           workdir: 8.0/cli
           tags: "8.0-cli"
           snapshot: true
+
   build-8_0-fpm:
     runs-on: ubuntu-latest
     steps:
@@ -34,6 +36,8 @@ jobs:
           workdir: 8.0/fpm
           tags: "8.0-fpm"
           snapshot: true
+
+  # PHP 7.4
   build-7_4-cli:
     runs-on: ubuntu-latest
     steps:
@@ -47,6 +51,7 @@ jobs:
           workdir: 7.4/cli
           tags: "latest,latest-cli,7.4-cli"
           snapshot: true
+
   build-7_4-fpm:
     runs-on: ubuntu-latest
     steps:
@@ -60,6 +65,8 @@ jobs:
           workdir: 7.4/fpm
           tags: "latest-fpm,7.4-fpm"
           snapshot: true
+
+  # PHP 7.3          
   build-7_3-cli:
     runs-on: ubuntu-latest
     steps:
@@ -72,6 +79,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: 7.3/cli
           tags: "7.3-cli"
+
   build-7_3-fpm:
     runs-on: ubuntu-latest
     steps:

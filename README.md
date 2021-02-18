@@ -20,7 +20,6 @@ For the moment, the primary goal of this repository is to support the following 
   - With pcov as additional PHP extension on the CLI image
 
 - PHP 8.0 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
-  - **Warning:** a beta-release is used for the `sqlsrv` and `pdo_sqlsrv` extensions, since no stable release is available
   - With nano, nodejs, npm, yarn and composer added to the CLI version
   - With bcmath, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
   - With pcov as additional PHP extension on the CLI image
