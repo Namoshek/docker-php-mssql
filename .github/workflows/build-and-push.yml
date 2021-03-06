@@ -8,7 +8,36 @@ on:
     - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 
 jobs:
-  # PHP 8.0
+  # PHP 8.0 Alpine Linux
+  build-8_0-cli-alpine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and Publish 8.0-cli
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: namoshek/php-mssql
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: 8.0/cli-alpine
+          tags: "8.0-cli-alpine"
+          snapshot: true
+
+  build-8_0-fpm-alpine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and Publish 8.0-fpm
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: namoshek/php-mssql
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: 8.0/fpm-alpine
+          tags: "8.0-fpm-alpine"
+          snapshot: true
+
+  # PHP 8.0 Debian
   build-8_0-cli:
     runs-on: ubuntu-latest
     steps:
@@ -49,7 +78,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: 7.4/cli
-          tags: "latest,latest-cli,7.4-cli"
+          tags: "7.4-cli"
           snapshot: true
 
   build-7_4-fpm:
@@ -63,7 +92,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           workdir: 7.4/fpm
-          tags: "latest-fpm,7.4-fpm"
+          tags: "7.4-fpm"
           snapshot: true
 
   # PHP 7.3          
