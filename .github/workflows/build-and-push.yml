@@ -10,6 +10,7 @@ on:
 jobs:
   # PHP 8.0 Alpine Linux with Swoole Extension
   build-8_0-cli-alpine-swoole:
+    name: namoshek/php-mssql:8.0-cli-alpine-swoole
     runs-on: ubuntu-latest
     needs: build-8_0-cli-alpine
     steps:
@@ -25,6 +26,7 @@ jobs:
           snapshot: true
 
   build-8_0-fpm-alpine-swoole:
+    name: namoshek/php-mssql:8.0-fpm-alpine-swoole
     runs-on: ubuntu-latest
     needs: build-8_0-fpm-alpine
     steps:
@@ -41,6 +43,7 @@ jobs:
 
   # PHP 8.0 Alpine Linux
   build-8_0-cli-alpine:
+    name: namoshek/php-mssql:8.0-cli-alpine
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -55,6 +58,7 @@ jobs:
           snapshot: true
 
   build-8_0-fpm-alpine:
+    name: namoshek/php-mssql:8.0-fpm-alpine
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -70,6 +74,7 @@ jobs:
 
   # PHP 8.0 Debian
   build-8_0-cli:
+    name: namoshek/php-mssql:8.0-cli
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -84,6 +89,7 @@ jobs:
           snapshot: true
 
   build-8_0-fpm:
+    name: namoshek/php-mssql:8.0-fpm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -99,6 +105,7 @@ jobs:
 
   # PHP 7.4
   build-7_4-cli:
+    name: namoshek/php-mssql:7.4-cli
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -113,6 +120,7 @@ jobs:
           snapshot: true
 
   build-7_4-fpm:
+    name: namoshek/php-mssql:7.4-fpm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -128,6 +136,7 @@ jobs:
 
   # PHP 7.3          
   build-7_3-cli:
+    name: namoshek/php-mssql:7.3-cli
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -141,6 +150,7 @@ jobs:
           tags: "7.3-cli"
 
   build-7_3-fpm:
+    name: namoshek/php-mssql:7.3-fpm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
