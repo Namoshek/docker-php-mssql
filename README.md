@@ -15,21 +15,24 @@ To run a container with an image, you can also use `docker run namoshek/php-mssq
 For the moment, the primary goal of this repository is to support the following configurations:
 
 - PHP 7.4 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
   - With nano, nodejs, npm, yarn and composer added to the CLI version
   - With bcmath, exif, gd, imagick, intl, opcache, pcntl, redis, and zip as additional PHP extensions
   - With pcov as additional PHP extension on the CLI image
   - Tags: `namoshek/php-mssql:7.4-cli`, `namoshek/php-mssql:7.4-fpm`
 
 - PHP 8.0 (based on Alpine Linux) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
   - With nano, nodejs, npm, yarn and composer added to the CLI version
-  - With bcmath, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
   - With pcov as additional PHP extension on the CLI image
   - Tags: `namoshek/php-mssql:8.0-cli-alpine`, `namoshek/php-mssql:8.0-fpm-alpine`
   - Tags: `namoshek/php-mssql:8.0-cli-alpine-swoole`, `namoshek/php-mssql:8.0-fpm-alpine-swoole` (with Swoole PHP extension)
 
 - PHP 8.0 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
   - With nano, nodejs, npm, yarn and composer added to the CLI version
-  - With bcmath, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
   - With pcov as additional PHP extension on the CLI image
   - Tags: `namoshek/php-mssql:8.0-cli`, `namoshek/php-mssql:8.0-fpm`
 
@@ -49,10 +52,13 @@ To change the PHP configuration, have a look at [the official PHP Docker image r
 ## Building the Images locally
 
 After cloning the repository, the images can be built locally using the following command:
+
 ```sh
 docker build -t namoshek/php-mssql:<tag> <version>/<type>
 ```
+
 Building the PHP 8.0 CLI image looks like this:
+
 ```sh
 docker build -t namoshek/php-mssql:8.0-cli 8.0/cli
 ```
