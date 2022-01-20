@@ -14,13 +14,6 @@ To run a container with an image, you can also use `docker run namoshek/php-mssq
 
 For the moment, the primary goal of this repository is to support the following configurations:
 
-- PHP 7.4 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
-
-  - With nano, nodejs, npm, yarn and composer added to the CLI version
-  - With bcmath, exif, gd, imagick, intl, opcache, pcntl, redis, and zip as additional PHP extensions
-  - With pcov as additional PHP extension on the CLI image
-  - Tags: `namoshek/php-mssql:7.4-cli`, `namoshek/php-mssql:7.4-fpm`
-
 - PHP 8.0 (based on Alpine Linux) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 
   - With nano, nodejs, npm, yarn and composer added to the CLI version
@@ -36,6 +29,21 @@ For the moment, the primary goal of this repository is to support the following 
   - With pcov as additional PHP extension on the CLI image
   - Tags: `namoshek/php-mssql:8.0-cli`, `namoshek/php-mssql:8.0-fpm`
 
+- PHP 8.1 (based on Alpine Linux) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
+  - With nano, nodejs, npm, yarn and composer added to the CLI version
+  - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With pcov as additional PHP extension on the CLI image
+  - Tags: `namoshek/php-mssql:8.1-cli-alpine`, `namoshek/php-mssql:8.1-fpm-alpine`
+  - Tags: `namoshek/php-mssql:8.1-cli-alpine-swoole`, `namoshek/php-mssql:8.1-fpm-alpine-swoole` (with Swoole PHP extension)
+
+- PHP 8.1 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
+  - With nano, nodejs, npm, yarn and composer added to the CLI version
+  - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With pcov as additional PHP extension on the CLI image
+  - Tags: `namoshek/php-mssql:8.1-cli`, `namoshek/php-mssql:8.1-fpm`
+
 The exact versions can vary from build to build.
 To see a list of all available tags, please have a look at the [Docker Hub image page](https://hub.docker.com/r/namoshek/php-mssql).
 
@@ -44,6 +52,7 @@ To see a list of all available tags, please have a look at the [Docker Hub image
 The Dockerfiles of the following images are no longer updated but images are still built automatically once a week.
 
 - PHP 7.3 (based on Debian Stretch) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+- PHP 7.4 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 
 ## Configuration
 
