@@ -48,168 +48,108 @@ jobs:
       source-directory: 8.1/fpm-alpine
       image-tag: namoshek/php-mssql:8.1-fpm-alpine
 
-  # # PHP 8.1 Debian
-  # build-8_1-cli:
-  #   name: namoshek/php-mssql:8.1-cli
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.1/cli
-  #         image-tag: 8.1-cli
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  # PHP 8.1 Debian
+  build-8_1-cli:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.1-cli
+    secrets: inherit
+    with:
+      source-directory: 8.1/cli
+      image-tag: namoshek/php-mssql:8.1-cli
 
-  # build-8_1-fpm:
-  #   name: namoshek/php-mssql:8.1-fpm
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.1/fpm
-  #         image-tag: 8.1-fpm
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  build-8_1-fpm:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.1-fpm
+    secrets: inherit
+    with:
+      source-directory: 8.1/fpm
+      image-tag: namoshek/php-mssql:8.1-fpm
 
-  # # PHP 8.0 Alpine Linux with Swoole Extension
-  # build-8_0-cli-alpine-swoole:
-  #   name: namoshek/php-mssql:8.0-cli-alpine-swoole
-  #   runs-on: ubuntu-latest
-  #   needs: build-8_0-cli-alpine
-  #   if: ${{ github.event_name != 'pull_request' }}
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.0/cli-alpine-swoole
-  #         image-tag: 8.0-cli-alpine-swoole
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  # PHP 8.0 Alpine Linux with Swoole Extension
+  build-8_0-cli-alpine-swoole:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.0-cli-alpine-swoole
+    needs: build-8_0-cli-alpine
+    if: ${{ github.event_name != 'pull_request' }}
+    secrets: inherit
+    with:
+      source-directory: 8.0/cli-alpine-swoole
+      image-tag: namoshek/php-mssql:8.0-cli-alpine-swoole
 
-  # build-8_0-fpm-alpine-swoole:
-  #   name: namoshek/php-mssql:8.0-fpm-alpine-swoole
-  #   runs-on: ubuntu-latest
-  #   needs: build-8_0-fpm-alpine
-  #   if: ${{ github.event_name != 'pull_request' }}
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.0/fpm-alpine-swoole
-  #         image-tag: 8.0-fpm-alpine-swoole
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  build-8_0-fpm-alpine-swoole:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.0-fpm-alpine-swoole
+    needs: build-8_0-fpm-alpine
+    if: ${{ github.event_name != 'pull_request' }}
+    secrets: inherit
+    with:
+      source-directory: 8.0/fpm-alpine-swoole
+      image-tag: namoshek/php-mssql:8.0-fpm-alpine-swoole
 
-  # # PHP 8.0 Alpine Linux
-  # build-8_0-cli-alpine:
-  #   name: namoshek/php-mssql:8.0-cli-alpine
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.0/cli-alpine
-  #         image-tag: 8.0-cli-alpine
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  # PHP 8.0 Alpine Linux
+  build-8_0-cli-alpine:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.0-cli-alpine
+    secrets: inherit
+    with:
+      source-directory: 8.0/cli-alpine
+      image-tag: namoshek/php-mssql:8.0-cli-alpine
 
-  # build-8_0-fpm-alpine:
-  #   name: namoshek/php-mssql:8.0-fpm-alpine
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.0/fpm-alpine
-  #         image-tag: 8.0-fpm-alpine
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  build-8_0-fpm-alpine:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.0-fpm-alpine
+    secrets: inherit
+    with:
+      source-directory: 8.0/fpm-alpine
+      image-tag: namoshek/php-mssql:8.0-fpm-alpine
 
-  # # PHP 8.0 Debian
-  # build-8_0-cli:
-  #   name: namoshek/php-mssql:8.0-cli
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.0/cli
-  #         image-tag: 8.0-cli
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  # PHP 8.0 Debian
+  build-8_0-cli:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.0-cli
+    secrets: inherit
+    with:
+      source-directory: 8.0/cli
+      image-tag: namoshek/php-mssql:8.0-cli
 
-  # build-8_0-fpm:
-  #   name: namoshek/php-mssql:8.0-fpm
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 8.0/fpm
-  #         image-tag: 8.0-fpm
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  build-8_0-fpm:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.0-fpm
+    secrets: inherit
+    with:
+      source-directory: 8.0/fpm
+      image-tag: namoshek/php-mssql:8.0-fpm
 
-  # # PHP 7.4
-  # build-7_4-cli:
-  #   name: namoshek/php-mssql:7.4-cli
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 7.4/cli
-  #         image-tag: 7.4-cli
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  # PHP 7.4
+  build-7_4-cli:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:7.4-cli
+    secrets: inherit
+    with:
+      source-directory: 7.4/cli
+      image-tag: namoshek/php-mssql:7.4-cli
 
-  # build-7_4-fpm:
-  #   name: namoshek/php-mssql:7.4-fpm
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 7.4/fpm
-  #         image-tag: 7.4-fpm
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  build-7_4-fpm:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:7.4-fpm
+    secrets: inherit
+    with:
+      source-directory: 7.4/fpm
+      image-tag: namoshek/php-mssql:7.4-fpm
 
-  # # PHP 7.3          
-  # build-7_3-cli:
-  #   name: namoshek/php-mssql:7.3-cli
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 7.3/cli
-  #         image-tag: 7.3-cli
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  # PHP 7.3          
+  build-7_3-cli:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:7.3-cli
+    secrets: inherit
+    with:
+      source-directory: 7.3/cli
+      image-tag: namoshek/php-mssql:7.3-cli
 
-  # build-7_3-fpm:
-  #   name: namoshek/php-mssql:7.3-fpm
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: ./.ci/actions/create-and-test-docker-image
-  #       with:
-  #         source-directory: 7.3/fpm
-  #         image-tag: 7.3-fpm
-  #         dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-  #         dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-  #         tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+  build-7_3-fpm:
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:7.3-fpm
+    secrets: inherit
+    with:
+      source-directory: 7.3/fpm
+      image-tag: namoshek/php-mssql:7.3-fpm
