@@ -19,6 +19,12 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Setup SQL Server 2017
+      uses: 280780363/sqlserver-action@v1.0
+      with:
+        accept eula: 'Y'
+        sa password: ${{ inputs.tests-sqlsrv-password }}
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
@@ -38,12 +44,6 @@ runs:
         tags: namoshek/php-mssql:${{ inputs.image-tag }}
         platforms: linux/amd64
         load: true
-
-    - name: Setup SQL Server 2017
-      uses: 280780363/sqlserver-action@v1.0
-      with:
-        accept eula: 'Y'
-        sa password: ${{ inputs.tests-sqlsrv-password }}
         
     - name: Test SQL Server connection
       uses: addnab/docker-run-action@v3
