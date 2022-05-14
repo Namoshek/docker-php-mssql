@@ -43,7 +43,7 @@ runs:
       uses: addnab/docker-run-action@v3
       with:
         image: namoshek/php-mssql:${{ inputs.image-tag }}
-        options: -v ${{ github.workspace }}/.ci/tests:/work -e MSSQL_HOST=host.docker.internal -e MSSQL_PORT=1433 -e MSSQL_DATABASE=master -e MSSQL_USERNAME=sa -e MSSQL_PASSWORD=${{ inputs.tests-sqlsrv-password }}
+        options: -v ${{ github.workspace }}/.ci/tests:/work -e MSSQL_HOST=sqlsrv -e MSSQL_PORT=1433 -e MSSQL_DATABASE=master -e MSSQL_USERNAME=sa -e MSSQL_PASSWORD=${{ inputs.tests-sqlsrv-password }}
         run: php /work/test_connection.php
 
     - name: Push namoshek/php-mssql:${{ inputs.image-tag }}
