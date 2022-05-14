@@ -14,7 +14,7 @@ on:
 
 jobs:
   build_and_test:
-    name: Build
+    name: Build, test and publish Docker image
     runs-on: ubuntu-latest
     services:
       sqlsrv:
