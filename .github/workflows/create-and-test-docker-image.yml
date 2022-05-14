@@ -14,7 +14,7 @@ on:
 
 jobs:
   build_and_test:
-    name: Build and test ${{ inputs.image-tag }}
+    name: Build
     runs-on: ubuntu-latest
     services:
       sqlsrv:

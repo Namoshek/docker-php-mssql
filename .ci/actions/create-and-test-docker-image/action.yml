@@ -1,5 +1,7 @@
 name: 'Create and test Docker image'
+
 description: 'Creates a Docker image from the input parameters. Then tests SQL Server connection using the image.'
+
 inputs:
   source-directory:
     description: 'The source directory relative to the repository root.'
@@ -16,6 +18,7 @@ inputs:
   tests-sqlsrv-password:
     description: 'The password to for the SQL Server instance to use when testing the Docker image.'
     required: true
+
 runs:
   using: "composite"
   steps:

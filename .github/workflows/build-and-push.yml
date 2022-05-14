@@ -13,6 +13,7 @@ jobs:
   # PHP 8.1 Alpine Linux with Swoole Extension
   build-8_1-cli-alpine-swoole:
     uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.1-cli-alpine-swoole
     needs: build-8_1-cli-alpine
     if: ${{ github.event_name != 'pull_request' }}
     secrets: inherit
@@ -22,6 +23,7 @@ jobs:
 
   build-8_1-fpm-alpine-swoole:
     uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.1-fpm-alpine-swoole
     needs: build-8_1-fpm-alpine
     if: ${{ github.event_name != 'pull_request' }}
     secrets: inherit
@@ -32,6 +34,7 @@ jobs:
   # PHP 8.1 Alpine Linux
   build-8_1-cli-alpine:
     uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.1-cli-alpine
     secrets: inherit
     with:
       source-directory: 8.1/cli-alpine
@@ -39,6 +42,7 @@ jobs:
 
   build-8_1-fpm-alpine:
     uses: ./.github/workflows/create-and-test-docker-image.yml
+    name: namoshek/php-mssql:8.1-fpm-alpine
     secrets: inherit
     with:
       source-directory: 8.1/fpm-alpine
