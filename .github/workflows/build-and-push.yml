@@ -15,15 +15,10 @@ jobs:
     needs: build-8_1-cli-alpine
     steps:
       - uses: actions/checkout@master
-      - name: Build and Publish 8.1-cli-alpine-swoole
-        uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: .ci/actions/create-and-test-docker-image
         with:
-          name: namoshek/php-mssql
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          workdir: 8.1/cli-alpine-swoole
-          tags: "8.1-cli-alpine-swoole"
-          snapshot: true
+          source-directory: 8.1/cli-alpine-swoole
+          image-tag: 8.1-cli-alpine-swoole
 
   build-8_1-fpm-alpine-swoole:
     name: namoshek/php-mssql:8.1-fpm-alpine-swoole
