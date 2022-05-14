@@ -17,6 +17,7 @@ jobs:
     needs: build-8_1-cli-alpine
     if: ${{ github.event_name != 'pull_request' }}
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.1/cli-alpine-swoole
@@ -28,6 +29,7 @@ jobs:
     needs: build-8_1-fpm-alpine
     if: ${{ github.event_name != 'pull_request' }}
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.1/fpm-alpine-swoole
@@ -38,6 +40,7 @@ jobs:
     name: namoshek/php-mssql:8.1-cli-alpine
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.1/cli-alpine
@@ -47,6 +50,7 @@ jobs:
     name: namoshek/php-mssql:8.1-fpm-alpine
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.1/fpm-alpine
@@ -57,6 +61,7 @@ jobs:
     name: namoshek/php-mssql:8.1-cli
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.1/cli
@@ -66,6 +71,7 @@ jobs:
     name: namoshek/php-mssql:8.1-fpm
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.1/fpm
@@ -78,6 +84,7 @@ jobs:
     needs: build-8_0-cli-alpine
     if: ${{ github.event_name != 'pull_request' }}
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.0/cli-alpine-swoole
@@ -89,6 +96,7 @@ jobs:
     needs: build-8_0-fpm-alpine
     if: ${{ github.event_name != 'pull_request' }}
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.0/fpm-alpine-swoole
@@ -99,6 +107,7 @@ jobs:
     name: namoshek/php-mssql:8.0-cli-alpine
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.0/cli-alpine
@@ -108,6 +117,7 @@ jobs:
     name: namoshek/php-mssql:8.0-fpm-alpine
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.0/fpm-alpine
@@ -118,6 +128,7 @@ jobs:
     name: namoshek/php-mssql:8.0-cli
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.0/cli
@@ -127,6 +138,7 @@ jobs:
     name: namoshek/php-mssql:8.0-fpm
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 8.0/fpm
@@ -137,6 +149,7 @@ jobs:
     name: namoshek/php-mssql:7.4-cli
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 7.4/cli
@@ -146,6 +159,7 @@ jobs:
     name: namoshek/php-mssql:7.4-fpm
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 7.4/fpm
@@ -156,6 +170,7 @@ jobs:
     name: namoshek/php-mssql:7.3-cli
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 7.3/cli
@@ -165,6 +180,7 @@ jobs:
     name: namoshek/php-mssql:7.3-fpm
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - uses: ./.ci/actions/create-and-test-docker-image
         with:
           source-directory: 7.3/fpm

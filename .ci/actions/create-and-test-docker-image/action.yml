@@ -10,8 +10,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@master
-
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
