@@ -1,0 +1,21 @@
+name: 'Create and test Docker image'
+description: 'Creates a Docker image from the input parameters. Then tests SQL Server connection using the image.'
+inputs:
+  source-directory:
+    description: 'The source directory relative to the repository root.'
+    required: true
+  image-tag:
+    description: 'The image tag to use for the Docker image.'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Build and Publish ${{ inputs.image-tag }}
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: namoshek/php-mssql
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        workdir: ${{ inputs.source-directory }}
+        tags: ${{ inputs.image-tag }}
+        snapshot: true
