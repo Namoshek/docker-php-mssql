@@ -11,7 +11,7 @@ runs:
   using: "composite"
   steps:
     - name: Build and Publish ${{ inputs.image-tag }}
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v4
       with:
         name: namoshek/php-mssql
         username: ${{ secrets.DOCKER_USERNAME }}
@@ -19,3 +19,4 @@ runs:
         workdir: ${{ inputs.source-directory }}
         tags: ${{ inputs.image-tag }}
         snapshot: true
+        no_push: ${{ github.event_name == 'pull_request' }}
