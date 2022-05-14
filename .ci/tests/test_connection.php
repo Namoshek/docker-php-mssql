@@ -1,6 +1,6 @@
 <?php
 
-function test_sqlsrv_connection()
+function test_sqlsrv_connection(&$errors)
 {
     $host = getenv('MSSQL_HOST');
     $port = getenv('MSSQL_PORT');
@@ -12,19 +12,23 @@ function test_sqlsrv_connection()
     ]);
 
     if ($connection === false) {
+        $errors[] = json_encode(sqlsrv_errors());
+
         return false;
     }
 
     $success = sqlsrv_query($connection, 'SELECT 1');
 
     if ($success === false) {
+        $errors[] = json_encode(sqlsrv_errors());
+
         return false;
     }
 
     return true;
 }
 
-function test_pdo_sqlsrv_connection()
+function test_pdo_sqlsrv_connection(&$errors)
 {
     $host = getenv('MSSQL_HOST');
     $port = getenv('MSSQL_PORT');
@@ -43,6 +47,8 @@ function test_pdo_sqlsrv_connection()
             return false;
         }
     } catch (PDOException $e) {
+        $errors[] = json_encode($e->getMessage());
+
         return false;
     }
 
@@ -62,13 +68,19 @@ echo 'MSSQL_PASSWORD:' . getenv('MSSQL_PASSWORD') . PHP_EOL;
 echo 'MSSQL_DATABASE:' . getenv('MSSQL_DATABASE') . PHP_EOL;
 echo PHP_EOL;
 
+$errors = [];
+
 echo '== Testing `sqlsrv` extension ==' . PHP_EOL;
-$sqlsrvSuccess = test_sqlsrv_connection();
+$sqlsrvSuccess = test_sqlsrv_connection($errors);
 echo 'Establishing connection ' . ($sqlsrvSuccess ? 'successful!' : 'failed.') . PHP_EOL;
 
 echo '== Testing `pdo_sqlsrv` extension ==' . PHP_EOL;
-$pdoSqlsrvSuccess = test_pdo_sqlsrv_connection();
+$pdoSqlsrvSuccess = test_pdo_sqlsrv_connection($errors);
 echo 'Establishing connection ' . ($pdoSqlsrvSuccess ? 'successful!' : 'failed.') . PHP_EOL;
 
-$exitCode = $sqlsrvSuccess && $pdoSqlsrvSuccess ? 0 : 1;
-exit($exitCode);
+if ($sqlsrvSuccess && $pdoSqlsrvSuccess) {
+    exit(0);
+}
+
+var_dump($errors);
+exit(1);
