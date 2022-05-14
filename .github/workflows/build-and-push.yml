@@ -12,87 +12,37 @@ on:
 jobs:
   # PHP 8.1 Alpine Linux with Swoole Extension
   build-8_1-cli-alpine-swoole:
-    name: namoshek/php-mssql:8.1-cli-alpine-swoole
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/create-and-test-docker-image.yml
     needs: build-8_1-cli-alpine
     if: ${{ github.event_name != 'pull_request' }}
-    steps:
-      - uses: actions/checkout@master
-      - uses: ./.ci/actions/create-and-test-docker-image
-        with:
-          source-directory: 8.1/cli-alpine-swoole
-          image-tag: 8.1-cli-alpine-swoole
-          dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-          tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+    secrets: inherit
+    with:
+      source-directory: 8.1/cli-alpine-swoole
+      image-tag: namoshek/php-mssql:8.1-cli-alpine-swoole
 
   build-8_1-fpm-alpine-swoole:
-    name: namoshek/php-mssql:8.1-fpm-alpine-swoole
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/create-and-test-docker-image.yml
     needs: build-8_1-fpm-alpine
     if: ${{ github.event_name != 'pull_request' }}
-    steps:
-      - uses: actions/checkout@master
-      - uses: ./.ci/actions/create-and-test-docker-image
-        with:
-          source-directory: 8.1/fpm-alpine-swoole
-          image-tag: 8.1-fpm-alpine-swoole
-          dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-          tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+    secrets: inherit
+    with:
+      source-directory: 8.1/fpm-alpine-swoole
+      image-tag: namoshek/php-mssql:8.1-fpm-alpine-swoole
 
   # PHP 8.1 Alpine Linux
   build-8_1-cli-alpine:
-    name: namoshek/php-mssql:8.1-cli-alpine
-    runs-on: ubuntu-latest
-    services:
-      sqlsrv:
-        image: mcr.microsoft.com/mssql/server:2017-latest
-        env:
-          ACCEPT_EULA: Y
-          SA_PASSWORD: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
-        ports:
-          - 1433:1433
-        options: >-
-          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD} -Q 'SELECT 1' || exit 1"
-          --health-interval 10s
-          --health-timeout 3s
-          --health-retries 10
-    steps:
-      - uses: actions/checkout@master
-      - uses: ./.ci/actions/create-and-test-docker-image
-        with:
-          source-directory: 8.1/cli-alpine
-          image-tag: 8.1-cli-alpine
-          dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-          tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    secrets: inherit
+    with:
+      source-directory: 8.1/cli-alpine
+      image-tag: namoshek/php-mssql:8.1-cli-alpine
 
   build-8_1-fpm-alpine:
-    name: namoshek/php-mssql:8.1-fpm-alpine
-    runs-on: ubuntu-latest
-    services:
-      sqlsrv:
-        image: mcr.microsoft.com/mssql/server:2017-latest
-        env:
-          ACCEPT_EULA: Y
-          SA_PASSWORD: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
-        ports:
-          - 1433:1433
-        options: >-
-          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD} -Q 'SELECT 1' || exit 1"
-          --health-interval 10s
-          --health-timeout 3s
-          --health-retries 10
-    steps:
-      - uses: actions/checkout@master
-      - uses: ./.ci/actions/create-and-test-docker-image
-        with:
-          source-directory: 8.1/fpm-alpine
-          image-tag: 8.1-fpm-alpine
-          dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-          tests-sqlsrv-password: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
+    uses: ./.github/workflows/create-and-test-docker-image.yml
+    secrets: inherit
+    with:
+      source-directory: 8.1/fpm-alpine
+      image-tag: namoshek/php-mssql:8.1-fpm-alpine
 
   # # PHP 8.1 Debian
   # build-8_1-cli:
