@@ -3,7 +3,7 @@ FROM php:8.0-fpm-alpine3.13
 ENV ACCEPT_EULA=Y
 
 # Install prerequisites required for tools and extensions installed later on.
-RUN apk add --update bash gnupg libpng-dev libzip-dev su-exec unzip
+RUN apk add --update bash gnupg less libpng-dev libzip-dev su-exec unzip
 
 # Install prerequisites for the sqlsrv and pdo_sqlsrv PHP extensions.
 RUN curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.7.1.1-1_amd64.apk \
