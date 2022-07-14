@@ -3,7 +3,7 @@ FROM php:8.0-cli-alpine3.13
 ENV ACCEPT_EULA=Y
 
 # Install prerequisites required for tools and extensions installed later on.
-RUN apk add --update bash gnupg libpng-dev libzip-dev nano nodejs npm su-exec unzip
+RUN apk add --update bash gnupg less libpng-dev libzip-dev nano nodejs npm su-exec unzip
 
 # Install yarn as global npm package.
 RUN npm install -g yarn
