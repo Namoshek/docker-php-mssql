@@ -9,6 +9,7 @@ function test_sqlsrv_connection(&$errors)
         'UID' => getenv('MSSQL_USERNAME'),
         'PWD' => getenv('MSSQL_PASSWORD'),
         'Database' => getenv('MSSQL_DATABASE'),
+        'Encrypt' => false,
     ]);
 
     if ($connection === false) {
