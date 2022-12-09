@@ -37,7 +37,7 @@ function test_pdo_sqlsrv_connection(&$errors)
     $password = getenv('MSSQL_PASSWORD');
 
     try {
-        $connection = new PDO("sqlsrv:server={$host},{$port};Database={$database};ConnectionPooling=0", $username, $password, [
+        $connection = new PDO("sqlsrv:server={$host},{$port};Database={$database};ConnectionPooling=0;Encrypt=no", $username, $password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
 
