@@ -5,10 +5,11 @@ function test_sqlsrv_connection(&$errors)
     $host = getenv('MSSQL_HOST');
     $port = getenv('MSSQL_PORT');
 
-    $connection = sqlsrv_connect("${host},${port}", [
+    $connection = sqlsrv_connect("{$host},{$port}", [
         'UID' => getenv('MSSQL_USERNAME'),
         'PWD' => getenv('MSSQL_PASSWORD'),
         'Database' => getenv('MSSQL_DATABASE'),
+        'Encrypt' => false,
     ]);
 
     if ($connection === false) {
@@ -37,7 +38,7 @@ function test_pdo_sqlsrv_connection(&$errors)
     $password = getenv('MSSQL_PASSWORD');
 
     try {
-        $connection = new PDO("sqlsrv:server=${host},${port};Database=${database};ConnectionPooling=0", $username, $password, [
+        $connection = new PDO("sqlsrv:server={$host},{$port};Database={$database};ConnectionPooling=0;Encrypt=no", $username, $password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
 
