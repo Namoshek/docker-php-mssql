@@ -28,7 +28,7 @@ jobs:
           --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD} -Q 'SELECT 1' || exit 1"
           --health-interval 10s
           --health-timeout 3s
-          --health-retries 10
+          --health-retries 20
     steps:
       - uses: actions/checkout@master
 
@@ -45,7 +45,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build ${{ inputs.image-tag }}
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: ${{ inputs.source-directory }}
           tags: ${{ inputs.image-tag }}
@@ -60,7 +60,7 @@ jobs:
           run: php /work/test_connection.php
 
       - name: Push ${{ inputs.image-tag }}
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         if: ${{ github.event_name != 'pull_request' }}
         with:
           context: ${{ inputs.source-directory }}
