@@ -174,37 +174,3 @@ jobs:
     with:
       source-directory: 8.0/fpm
       image-tag: namoshek/php-mssql:8.0-fpm
-
-  # PHP 7.4
-  build-7_4-cli:
-    uses: ./.github/workflows/create-and-test-docker-image.yml
-    name: namoshek/php-mssql:7.4-cli
-    secrets: inherit
-    with:
-      source-directory: 7.4/cli
-      image-tag: namoshek/php-mssql:7.4-cli
-
-  build-7_4-fpm:
-    uses: ./.github/workflows/create-and-test-docker-image.yml
-    name: namoshek/php-mssql:7.4-fpm
-    secrets: inherit
-    with:
-      source-directory: 7.4/fpm
-      image-tag: namoshek/php-mssql:7.4-fpm
-
-  # PHP 7.3          
-  build-7_3-cli:
-    uses: ./.github/workflows/create-and-test-docker-image.yml
-    name: namoshek/php-mssql:7.3-cli
-    secrets: inherit
-    with:
-      source-directory: 7.3/cli
-      image-tag: namoshek/php-mssql:7.3-cli
-
-  build-7_3-fpm:
-    uses: ./.github/workflows/create-and-test-docker-image.yml
-    name: namoshek/php-mssql:7.3-fpm
-    secrets: inherit
-    with:
-      source-directory: 7.3/fpm
-      image-tag: namoshek/php-mssql:7.3-fpm
