@@ -62,9 +62,9 @@ For the moment, the primary goal of this repository is to support the following 
 The exact versions can vary from build to build.
 To see a list of all available tags, please have a look at the [Docker Hub image page](https://hub.docker.com/r/namoshek/php-mssql).
 
-### Deprecated Images
+### Discontinued Images
 
-The Dockerfiles of the following images are no longer updated but images are still built automatically once a week.
+The following images are not built anymore, but old builds may still be available on Docker Hub:
 
 - PHP 7.3 (based on Debian Stretch) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 - PHP 7.4 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
@@ -81,10 +81,10 @@ After cloning the repository, the images can be built locally using the followin
 docker build -t namoshek/php-mssql:<tag> <version>/<type>
 ```
 
-Building the PHP 8.0 CLI image looks like this:
+Building the PHP 8.2 CLI image looks like this:
 
 ```sh
-docker build -t namoshek/php-mssql:8.0-cli 8.0/cli
+docker build -t namoshek/php-mssql:8.2-cli 8.2/cli
 ```
 
 ## Contributing
