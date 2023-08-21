@@ -1,4 +1,4 @@
-FROM php:8.2-cli-bullseye
+FROM php:8.2-cli
 
 ENV ACCEPT_EULA=Y
 

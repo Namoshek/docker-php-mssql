@@ -22,14 +22,14 @@ For the moment, the primary goal of this repository is to support the following 
   - Tags: `namoshek/php-mssql:8.2-cli-alpine`, `namoshek/php-mssql:8.2-fpm-alpine`
   - Tags: `namoshek/php-mssql:8.2-cli-alpine-swoole`, `namoshek/php-mssql:8.2-fpm-alpine-swoole` (with Swoole PHP extension)
 
-- PHP 8.2 (based on Debian Bullseye) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+- PHP 8.2 (based on Debian Bookworm) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 
   - With nano, nodejs, npm, yarn and composer added to the CLI version
   - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
   - With pcov as additional PHP extension on the CLI image
   - Tags: `namoshek/php-mssql:8.2-cli`, `namoshek/php-mssql:8.2-fpm`
 
-- PHP 8.1 (based on Alpine Linux) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+- PHP 8.1 (based on Alpine Linux) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 
   - With nano, nodejs, npm, yarn and composer added to the CLI version
   - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
@@ -37,7 +37,7 @@ For the moment, the primary goal of this repository is to support the following 
   - Tags: `namoshek/php-mssql:8.1-cli-alpine`, `namoshek/php-mssql:8.1-fpm-alpine`
   - Tags: `namoshek/php-mssql:8.1-cli-alpine-swoole`, `namoshek/php-mssql:8.1-fpm-alpine-swoole` (with Swoole PHP extension)
 
-- PHP 8.1 (based on Debian Buster) + Microsoft ODBC Driver 17 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+- PHP 8.1 (based on Debian Bookworm) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 
   - With nano, nodejs, npm, yarn and composer added to the CLI version
   - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
