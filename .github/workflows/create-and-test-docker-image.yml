@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       sqlsrv:
-        image: mcr.microsoft.com/mssql/server:2017-latest
+        image: mcr.microsoft.com/mssql/server:2019-latest
         env:
           ACCEPT_EULA: Y
           SA_PASSWORD: ${{ secrets.TESTS_SQLSRV_DB_SECRET }}
