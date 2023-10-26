@@ -49,7 +49,7 @@ jobs:
         with:
           context: ${{ inputs.source-directory }}
           tags: ${{ inputs.image-tag }}
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           load: true
           
       - name: Test SQL Server connection
@@ -65,5 +65,5 @@ jobs:
         with:
           context: ${{ inputs.source-directory }}
           tags: ${{ inputs.image-tag }}
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
