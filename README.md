@@ -14,6 +14,21 @@ To run a container with an image, you can also use `docker run namoshek/php-mssq
 
 For the moment, the primary goal of this repository is to support the following configurations:
 
+- PHP 8.3 (based on Alpine Linux) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
+  - With nano, nodejs, npm, yarn and composer added to the CLI version
+  - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With pcov as additional PHP extension on the CLI image
+  - Tags: `namoshek/php-mssql:8.3-cli-alpine`, `namoshek/php-mssql:8.3-fpm-alpine`
+  - Tags: `namoshek/php-mssql:8.3-cli-alpine-swoole`, `namoshek/php-mssql:8.3-fpm-alpine-swoole` (with Swoole PHP extension)
+
+- PHP 8.3 (based on Debian Bookworm) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
+
+  - With nano, nodejs, npm, yarn and composer added to the CLI version
+  - With bcmath, ds, exif, gd, intl, opcache, pcntl, redis, and zip as additional PHP extensions
+  - With pcov as additional PHP extension on the CLI image
+  - Tags: `namoshek/php-mssql:8.3-cli`, `namoshek/php-mssql:8.3-fpm`
+
 - PHP 8.2 (based on Alpine Linux) + Microsoft ODBC Driver 18 + sqlsrv + pdo_sqlsrv (FPM and CLI)
 
   - With nano, nodejs, npm, yarn and composer added to the CLI version
