@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build ${{ inputs.image-tag }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ${{ inputs.source-directory }}
           tags: ${{ inputs.image-tag }}
@@ -61,7 +61,7 @@ jobs:
           run: php /work/test_connection.php
 
       - name: Push ${{ inputs.image-tag }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         if: ${{ github.event_name != 'pull_request' }}
         with:
           context: ${{ inputs.source-directory }}
